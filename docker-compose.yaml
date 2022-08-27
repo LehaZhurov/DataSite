@@ -1,0 +1,85 @@
+version: '3'
+services:
+  data:
+      build: ./Data/docker/app/
+      container_name: data_app
+      volumes:
+          - ./Data/:/usr/share/nginx/www
+      working_dir: /usr/share/nginx/www
+      depends_on:
+        - postgres
+      networks:
+        bridge:
+          aliases:
+          - data_app
+
+  datanginx:
+      build: ./Data/docker/nginx
+      container_name: data
+      links:
+          - data
+      volumes_from:
+          - data
+      ports:
+          - 81:80
+      networks:
+        bridge:
+          aliases:
+          - data
+  site:
+      build: ./Data/docker/app/
+      container_name: site_app
+      volumes:
+          - ./Data/:/usr/share/nginx/www
+      working_dir: /usr/share/nginx/www
+      depends_on:
+        - postgres
+      networks:
+        bridge:
+          aliases:
+          - site_app
+
+  sitenginx:
+      build: ./Site/docker/nginx
+      container_name: site
+      links:
+          - site
+      volumes_from:
+          - site
+      ports:
+          - 82:80
+      networks:
+        bridge:
+          aliases:
+          - site
+ 
+  postgres:
+    image: postgres:10.1
+    container_name: postgres-db
+    restart: always
+    ports:
+          - 5432:5432
+    environment:
+      POSTGRES_DB: ejournal
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+    networks:
+        bridge:
+          aliases:
+          - postgres
+  adminer:
+    container_name: postgres-adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+        bridge:
+          aliases:
+          - adminer
+networks:
+  bridge:
+    external:
+      name: app_bridge
