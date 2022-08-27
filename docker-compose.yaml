@@ -7,7 +7,7 @@ services:
           - ./Data/:/usr/share/nginx/www
       working_dir: /usr/share/nginx/www
       depends_on:
-        - postgres
+        - db
       networks:
         bridge:
           aliases:
@@ -33,7 +33,7 @@ services:
           - ./Data/:/usr/share/nginx/www
       working_dir: /usr/share/nginx/www
       depends_on:
-        - postgres
+        - db
       networks:
         bridge:
           aliases:
@@ -53,14 +53,14 @@ services:
           aliases:
           - site
  
-  postgres:
+  db:
     image: postgres:10.1
-    container_name: postgres-db
+    container_name: db
     restart: always
     ports:
           - 5432:5432
     environment:
-      POSTGRES_DB: ejournal
+      POSTGRES_DB: datasite
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
     volumes:
