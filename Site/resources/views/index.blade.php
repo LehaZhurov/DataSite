@@ -17,13 +17,12 @@
       <div id="alertblock">
       
       </div>
-      <h1>Конструктор формы</h1>
+      <h1>Заполните форму</h1>
       <div class="container-fluid d-flex justify-content-center">
-          <div id="constructor" class = 'container d-flex' style='flex-direction:column'>
+          <div id="form" class = 'container d-flex' style='flex-direction:column'>
   
           </div>
       </div>
-      <button class = 'btn btn-primary' id = 'saveform' type = 'button'>Сохранить</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     @vite(['resources/js/app.js'])

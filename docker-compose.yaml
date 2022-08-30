@@ -27,10 +27,10 @@ services:
           aliases:
           - data
   site:
-      build: ./Data/docker/app/
+      build: ./Site/docker/app/
       container_name: site_app
       volumes:
-          - ./Data/:/usr/share/nginx/www
+          - ./Site/:/usr/share/nginx/www
       working_dir: /usr/share/nginx/www
       depends_on:
         - db

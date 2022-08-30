@@ -4,3 +4,20 @@ label > a{
 #constructor{
     width:60%;
 }
+#workobl{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+#saveform{
+    margin-top:20px;
+}
+#workobl > h1{
+    margin-bottom:20px;
+}
+#alertblock{
+    position:absolute;
+    top:0;
+    right: 0;
+}

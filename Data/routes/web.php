@@ -14,4 +14,4 @@ use App\Http\Controllers\FormController;
 */
 
 
-Route::get('/', [\App\Http\Controllers\FormController::class, 'index'])->name('createForm');
+Route::get('/', [FormController::class, 'index'])->name('createForm');
