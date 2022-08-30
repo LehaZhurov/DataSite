@@ -14,8 +14,8 @@ use App\Http\Procedures\DataProcedure;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
 Route::rpc('/v1/form', [DataProcedure::class])->name('rpc.form');

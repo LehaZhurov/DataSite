@@ -6,7 +6,7 @@ use App\Models\Form;
 
 class CreatedFormAction
 {
-
+    //Action создает новую форму 
     public static function execute(array $data): Form
     {
         $form = new Form();

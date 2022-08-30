@@ -26,6 +26,9 @@
       <button class = 'btn btn-primary' id = 'saveform' type = 'button'>Сохранить</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    @vite(['resources/js/app.js'])
+    @vite(['resources/css/app.css', 
+                'resources/js/app.js',
+                'resources/js/form/FormBuilder.js',
+                'resources/js/form/createrForm.js'])
   </body>
 </html>

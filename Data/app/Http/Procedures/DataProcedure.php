@@ -6,10 +6,13 @@ namespace App\Http\Procedures;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateFormRequest;
+use App\Http\Requests\SaveDataRequest;
 use App\Http\Requests\GetFormRequest;
 use Sajya\Server\Procedure;
 use App\Action\Form\CreatedFormAction;
+use App\Action\FormData\SaveDataAction;
 use App\Http\Queries\Form\GetFormQuery;
+use App\Http\Queries\Form\GetFormsQuery;
 class DataProcedure extends Procedure
 {
     /**
@@ -37,17 +40,19 @@ class DataProcedure extends Procedure
         return $form;
     }
 
-    public function getForm(Request $request){
+    public function getForm(GetFormRequest $request){
         $form = GetFormQuery::find($request->all()['id']);
         return $form;
     }
 
     public function getForms(Request $request){
-        
+        $form = GetFormsQuery::find();
+        return $form;
     }
 
-    public function saveDataForm(Request $request){
-
+    public function saveDataForm(SaveDataRequest $request){
+        $data = SaveDataAction::execute($request->input('form_id'),$request->input('data'));
+        return $data;
     }
 
     public function getDataForm(Request $request){

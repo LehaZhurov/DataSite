@@ -1,6 +1,7 @@
 import { FormBuilder } from './FormBuilder';
 import { SendRPCRequest, RPC } from '../rpc';
 import { Alert } from '../alert';
+
 let Builder;
 function createContstructor() {
     Builder = new FormBuilder();
@@ -14,7 +15,7 @@ window.onload = () => {
 
 document.querySelector('#saveform').onclick = () => {
     if (!Builder.save()) {
-        Alert('Не указано имя формы','error');
+        Alert('Не указано имя формы', 'error');
     }
     let data = RPC('data@createForm', Builder.formData, 1);
     console.log(data);
@@ -25,12 +26,14 @@ document.querySelector('#saveform').onclick = () => {
 
 
 function formSaved(data) {
-    if(data['error']){
+    if (data['error']) {
         let errors = data['error']['data'];
         for (let key in errors) {
-              Alert(errors[key],'error')
+            Alert(errors[key], 'error')
         }
         return false;
+    }else{
+        Alert('Форма успешно сохранена','success')
     }
     Builder = new FormBuilder();
     Builder.init('constructor');

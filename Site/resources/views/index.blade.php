@@ -3,19 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Создание формы</title>
+    <title>Заполнение формы</title>
     @vite(['resources/css/app.css'])
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
     <nav class="navbar bg-light">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1">Data.com</span>
+          <span class="navbar-brand mb-0 h1">Site.com</span>
         </div>
     </nav>
     <div id = 'workobl'>
       <div id="alertblock">
       
+      </div>
+      <div id="selectform"> 
+         <h1>Выбирите форму</h1>
       </div>
       <h1>Заполните форму</h1>
       <div class="container-fluid d-flex justify-content-center">

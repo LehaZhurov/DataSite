@@ -1,4 +1,5 @@
 import './bootstrap';
-import './FormBuilder'
+import './FormCollector'
 import './getForm'
-import './rpc'
+import './AJAX'
+import './Alert'

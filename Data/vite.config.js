@@ -8,7 +8,7 @@ export default defineConfig({
                 'resources/css/app.css', 
                 'resources/js/app.js',
                 'resources/js/form/FormBuilder.js',
-                'resources/js/form/createForm.js'
+                'resources/js/form/createrForm.js'
             ],
             refresh: true,
         }),
