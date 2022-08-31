@@ -36,9 +36,10 @@ function buildFormsSelect(data) {
         select.appendChild(option);
     }
     block.appendChild(select);
-    select.addEventListener('change', function (select) {
+    select.addEventListener('change', function () {
         getForm(this.value);
     })
+    
     load(false);
 }
 
