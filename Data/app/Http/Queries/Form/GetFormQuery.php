@@ -9,7 +9,7 @@ class GetFormQuery
     //Query позволяет получить форму по его id
     public static function find($id): Form
     {
-        $form = Form::select('name as formName', 'formmap as items', 'id as form_uid')->findOrFail($id);
+        $form = Form::query()->select('name as formName', 'formmap as items', 'id as form_uid')->findOrFail($id);
         return $form;
     }
 }

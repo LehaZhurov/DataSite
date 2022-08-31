@@ -11,6 +11,7 @@
     <nav class="navbar bg-light">
         <div class="container-fluid">
           <span class="navbar-brand mb-0 h1">Site.com</span>
+          <span><a href="/data">Данные форм</a></span>
         </div>
     </nav>
     <div id = 'workobl'>

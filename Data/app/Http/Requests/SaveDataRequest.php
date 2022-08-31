@@ -24,8 +24,7 @@ class SaveDataRequest extends FormRequest
     public function rules()
     {
         return [
-            'form_id' => ['required','int'],
-            'data' => ['required','array']
+            'form_uid' => ['required','int'],
         ];
     }
 }

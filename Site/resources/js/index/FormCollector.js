@@ -2,25 +2,20 @@ export let FormCollector = class {
 
     block;
     formBlock;
-    //formBlockId - судя будет выводится форма
-    //form - массив с данными формы полученые с сервера
     init(formBlockId,formMarkup) {
         this.block = document.querySelector('#' + formBlockId);
         this.block.innerHTML = ' ';
         this.formMarkup = formMarkup;
     }
-    
-    
-
-    
     build(action = '#') {
-        this.formBlock = this.createForm(form.form_uid,action);
+        this.formBlock = this.createForm(this.formMarkup.form_uid,action);
         let formName = this.createH(this.formMarkup.formName,'h3');
+        let idInput = this.createInput('form_uid','id формы','form_uid','d-none');
+        idInput.setAttribute('value',this.formMarkup.form_uid)
+        this.formBlock.appendChild(idInput);
         this.formBlock.appendChild(formName);
         for (let i = 0; i < this.formMarkup.items.length; i++) {
             let item = this.formMarkup.items[i];
-            let idInput = this.createInput('form_uid','id формы','form_uid','d-none');
-            this.formBlock.appendChild(idInput);
             let label = this.createLabel(item.placeholder, item.name);
             this.formBlock.appendChild(label);
             let block;
@@ -45,7 +40,6 @@ export let FormCollector = class {
         this.formBlock.appendChild(but);
         return but;
     }
-   
     createA(text,url,color){
         let a = document.createElement('a');
         a.setAttribute('href',url);
@@ -110,7 +104,5 @@ export let FormCollector = class {
         h.innerText = text;
         h.setAttribute('class', classes);
         return h;
-    }
-
-    
+    }   
 }

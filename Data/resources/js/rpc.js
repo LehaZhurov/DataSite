@@ -1,4 +1,4 @@
-export function SendRPCRequest(method,url,body = null){
+export function SendRPCRequest(method,url,body = null,debug = false) {
     body = JSON.stringify(body);
 	return new Promise ((resolve,reject)=>{
 		const xhr = new XMLHttpRequest();
@@ -8,7 +8,9 @@ export function SendRPCRequest(method,url,body = null){
         xhr.setRequestHeader("Content-Type", "application/json");
 		xhr.withCredentials = true;
 		if(xhr.readyState == 1){
-			console.log('Отправка запроса');
+			if(debug){
+				console.log('Отправка запроса ' + method + ' на ' + url);
+			}
 		}
 		xhr.onload = () =>{
 			if(xhr.status >= 400){

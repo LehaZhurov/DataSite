@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/getForm/{id}', [SiteController::class, 'getForm'])->name('getForm');
 Route::get('/getForms', [SiteController::class, 'getForms'])->name('getForms');
+Route::post('/saveData', [SiteController::class, 'saveData'])->name('saveData');
+Route::get('/getFormData/{id}', [SiteController::class, 'getFormData'])->name('formData');

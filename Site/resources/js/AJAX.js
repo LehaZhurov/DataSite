@@ -1,12 +1,13 @@
-export function SendRequest(method,url,body = null){
+export function SendRequest(method,url,body = null,debug = false){
 	return new Promise ((resolve,reject)=>{
 		const xhr = new XMLHttpRequest();
 		xhr.open(method,url,true)
 		xhr.responseType = 'json';
-        xhr.setRequestHeader("Content-Type", "application/json");
 		xhr.withCredentials = true;
 		if(xhr.readyState == 1){
-			console.log('Отправка запроса');
+			if(debug){
+				console.log('Отправка запроса ' + method + ' на ' + url);
+			}
 		}
 		xhr.onload = () =>{
 			if(xhr.status >= 400){

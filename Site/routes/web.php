@@ -18,3 +18,4 @@ use App\Http\Controllers\SiteController;
 // });
 
 Route::get('/', [SiteController::class, 'index'])->name('index');
+Route::get('/data', [SiteController::class, 'dataFormPage'])->name('data');

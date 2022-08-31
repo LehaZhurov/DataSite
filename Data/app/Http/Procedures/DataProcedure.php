@@ -13,6 +13,7 @@ use App\Action\Form\CreatedFormAction;
 use App\Action\FormData\SaveDataAction;
 use App\Http\Queries\Form\GetFormQuery;
 use App\Http\Queries\Form\GetFormsQuery;
+use App\Http\Queries\Form\GetFormDataQuery;
 class DataProcedure extends Procedure
 {
     /**
@@ -51,11 +52,12 @@ class DataProcedure extends Procedure
     }
 
     public function saveDataForm(SaveDataRequest $request){
-        $data = SaveDataAction::execute($request->input('form_id'),$request->input('data'));
+        $data = SaveDataAction::execute($request->all());
         return $data;
     }
 
     public function getDataForm(Request $request){
-
+        $formData = GetFormDataQuery::find($request->all()['id']);
+        return $formData;
     }
 }

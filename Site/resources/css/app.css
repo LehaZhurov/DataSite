@@ -19,3 +19,13 @@ label > a{
     top:0;
     right: 0;
 }
+#table{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    
+}
+.list-group-flush {
+    width:50%;
+}

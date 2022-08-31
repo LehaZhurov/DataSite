@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Data;
+
 use Exception;
 
 class Api
@@ -13,7 +14,7 @@ class Api
 
 
 
-    protected function request(string $method, array $params = [], int $id = 1)
+    protected function request(string $method, array $params = [], int $id = 1):array 
     {
         $body = ["jsonrpc" => "2.0", 'method' => $method, 'params' => $params, 'id' => $id];
         $body = json_encode($body);
@@ -29,20 +30,33 @@ class Api
 
         $result = file_get_contents($this::HOST, false, $context);
         $result = json_decode($result, true);
-        if(array_key_exists('error',$result)){
-            return $result;            
+        if (array_key_exists('error', $result)) {
+            return $result;
         }
         return $result['result'];
     }
 
-    public function getForm(int $id)
+    public function getForm(int $id):array
     {
         $result = $this->request('data@getForm', ['id' => $id]);
         return $result;
     }
 
-    public function getForms(){
+    public function getForms():array
+    {
         $result = $this->request('data@getForms');
+        return $result;
+    }
+
+    public function saveData($data):array
+    {
+        $result = $this->request('data@saveDataForm', $data);
+        return $result;
+    }
+
+    public function getData(int $id):array
+    {
+        $result = $this->request('data@getDataForm',['id' => $id]);
         return $result;
     }
 }
